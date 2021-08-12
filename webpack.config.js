@@ -35,4 +35,7 @@ module.exports = {
     title: "Sabka Bazaar",
     template: path.resolve(__dirname, "./public/index.html"),
   })],
+  devServer: {
+    historyApiFallback: true,
+  },
 }
