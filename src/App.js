@@ -4,7 +4,7 @@ import React from 'react';
 // import Signup from './Container/Signup/Signup';
 // import Carousel from './component/Carousel/Carousel';
 //  import {connect} from 'react-redux';
-import Home from './Container/Home/home';
+import Home from './container/Home/home';
 
 function App(){
    
