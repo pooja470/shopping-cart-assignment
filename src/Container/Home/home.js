@@ -1,20 +1,54 @@
 import React ,{useEffect} from "react";
 import Carousel from "../../component/Carousel/Carousel";
 import { fetchBanner } from "../../redux/banner/bannerAction";
+import { fetchCategories } from "../../redux/categories/categoryAction";
 import { useSelector, useDispatch } from "react-redux";
 
 const Home=()=>{
     const dispatch = useDispatch();
     const banners = useSelector((state) => state.bannerReducer.data);
-    console.log("bannnners",banners);
+    const categories = useSelector((state) => state.categoryReducer.data);
+
     useEffect(() => {
         dispatch(fetchBanner());
-        console.log("bannnners+++++",banners);
+        dispatch(fetchCategories());
+        console.log("ddd",categories);
       }, []);
     return(
         <div>
             hi
             {banners && <Carousel data={banners} />}
+            <ul className="category-list">
+            {categories.map((category) => (
+              <li key={category.id} className="category">
+                <article className="category-details">
+                  <div className="category-title">{category.name}</div>
+                  <div className="category-description">
+                    {category.description}
+                  </div>
+                  <button
+                    type="button"
+                    className="category-explore-button"
+                    onClick={() => this.handleExplore(category.id)}
+                    tabIndex={0}
+                    disabled={!category.enabled}
+                    onKeyPress={() => this.handleExplore(category.id)}
+                  >
+                    Explore {category.name}
+                  </button>
+                </article>
+                <article className="category-right">
+                  <img
+                    className="category-image"
+                    src={category.imageUrl}
+                    alt={category.name}
+                    height="150"
+                    width="200"
+                  />
+                </article>
+              </li>
+            ))}
+          </ul>
         </div>
     )
 
