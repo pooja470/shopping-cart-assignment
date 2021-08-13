@@ -3,9 +3,10 @@ import Carousel from "../../component/Carousel/Carousel";
 import { fetchBanner } from "../../redux/banner/bannerAction";
 import { fetchCategories } from "../../redux/categories/categoryAction";
 import { useSelector, useDispatch } from "react-redux";
-
+import { useHistory } from "react-router-dom";
 const Home=()=>{
     const dispatch = useDispatch();
+    const history = useHistory();
     const banners = useSelector((state) => state.bannerReducer.data);
     const categories = useSelector((state) => state.categoryReducer.data);
 
@@ -14,6 +15,10 @@ const Home=()=>{
         dispatch(fetchCategories());
         console.log("ddd",categories);
       }, []);
+
+    const handleExplore=(id)=>{
+        history.push(`/products#${id}`);
+    }
     return(
         <div>
             hi
@@ -29,10 +34,10 @@ const Home=()=>{
                   <button
                     type="button"
                     className="category-explore-button"
-                    onClick={() => this.handleExplore(category.id)}
+                    onClick={() => handleExplore(category.id)}
                     tabIndex={0}
                     disabled={!category.enabled}
-                    onKeyPress={() => this.handleExplore(category.id)}
+                    onKeyPress={() => handleExplore(category.id)}
                   >
                     Explore {category.name}
                   </button>
