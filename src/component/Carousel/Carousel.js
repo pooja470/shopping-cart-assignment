@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Carousel.scss';
 import PropTypes from "prop-types";
 
 const Carousel = ({ data }) => {

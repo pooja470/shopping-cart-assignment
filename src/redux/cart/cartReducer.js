@@ -3,7 +3,7 @@ import {
     ADD_ITEM,
     INCREASE_QUANTITY,
     DECREASE_QUANTITY,
-  } from "./cartAction";
+  } from "./cartConstant";
   
   const initialState = {
     itemsAdded: [],
