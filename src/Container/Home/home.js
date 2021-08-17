@@ -1,5 +1,6 @@
 import React ,{useEffect} from "react";
 import Carousel from "../../component/Carousel/Carousel";
+import './home.scss';
 import { fetchBanner } from "../../redux/banner/bannerAction";
 import { fetchCategories } from "../../redux/categories/categoryAction";
 import { useSelector, useDispatch } from "react-redux";
