@@ -1,11 +1,9 @@
-
-
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ProductDetails from "../../component/ProductDetail/ProductDetails";
 import { fetchProducts } from "../../redux/products/productAction";
 import { fetchCategories } from "../../redux/categories/categoryAction";
-
+import "./Products.scss";
 const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.data);

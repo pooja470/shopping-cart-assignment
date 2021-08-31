@@ -22,7 +22,6 @@ const Home=()=>{
     }
     return(
         <div>
-            hi
             {banners && <Carousel data={banners} />}
             <ul className="category-list">
             {categories.map((category) => (

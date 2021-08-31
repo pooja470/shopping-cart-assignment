@@ -26,6 +26,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: "vendor",
+          chunks: "all",
+        },
+      },
+    },
+  },
 
   plugins: [  
     new MiniCssExtractPlugin({
@@ -36,6 +47,7 @@ module.exports = {
     template: path.resolve(__dirname, "./public/index.html"),
   })],
   devServer: {
+    port: 9000,
     historyApiFallback: true,
   },
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem, increaseQuantity } from "../../redux/cart/cartAction";
 import PropTypes from "prop-types";
+import "./ProductDetails.scss";
 
 const ProductDetails = ({ product }) => {
   const cartItems = useSelector((state) => state.cart.itemsAdded);
